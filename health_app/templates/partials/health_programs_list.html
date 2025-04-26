@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Programs List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main container with padding and centering -->
+    <div class="max-w-4xl mx-auto px-4 py-8">
+
+        <!-- Page Title -->
+        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-6">Health Programs List</h1>
+
+        <!-- Program List -->
+        <ul class="space-y-4">
+            {% for program in programs %}
+                <li class="bg-white p-4 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold text-gray-800">{{ program.name }}</h2>
+                    <p class="text-gray-600">{{ program.description }}</p>
+                </li>
+            {% empty %}
+                <li class="bg-white p-4 rounded-lg shadow-md text-center text-gray-500">
+                    No health programs available.
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+</body>
+</html>

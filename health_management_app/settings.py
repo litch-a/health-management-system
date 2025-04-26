@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'health_app',
+    'rest_framework',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'health_management_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'health_app/templates'],  # This line tells Django where to look for templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,5 +127,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'health_app/static',  # This points to the static folder you just created
 ]
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

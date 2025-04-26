@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients List</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.js"></script> <!-- Tailwind CSS -->
+</head>
+<body class="bg-gray-50 p-8">
+
+    <h1 class="text-3xl font-semibold text-center text-gray-800 mb-8">Clients List</h1>
+
+    <div class="max-w-4xl mx-auto">
+        {% if clients %}
+            <ul class="space-y-4">
+                {% for client in clients %}
+                    <li class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-medium text-gray-800">{{ client.first_name }} {{ client.last_name }}</h2>
+                        </div>
+
+                        <div class="mt-2">
+                            <strong class="text-gray-700">Enrolled in Programs:</strong>
+                            {% if client.enrollments.all %}
+                                <ul class="list-disc ml-5 mt-2 text-gray-600">
+                                    {% for enrollment in client.enrollments.all %}
+                                        <li>{{ enrollment.program.name }}: <span class="italic">{{ enrollment.program.description }}</span></li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="text-gray-500">No programs enrolled.</p>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center text-gray-500">No clients registered yet.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

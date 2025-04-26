@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Client</title>
+</head>
+<body>
+    <!-- Displaying the client's name -->
+    <h1>Enroll Client: {{ client.name }}</h1>
+    
+    <form method="POST" action="{% url 'health_app:enroll_client_content' %}">
+        {% csrf_token %}
+        <!-- Form fields for program and notes -->
+        {{ form.as_p }}
+        
+        <button type="submit">Enroll Client</button>
+    </form>
+</body>
+</html>
