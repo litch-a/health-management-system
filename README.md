@@ -45,3 +45,11 @@ Make sure you have the following installed:
    python manage.py runserver
 
 Now you can open the app in your browser at http://127.0.0.1:8000/.
+
+### Screenshots
+
+![Registration Screenshot](images/Screenshot1.jpg)
+![Create Health Program Screenshot](images/Screenshot2.jpg)
+![Client List Screenshot](images/Screenshot3.jpg)
+![Health Program List Screenshot](images/Screenshot4.jpg)
+![Enroll Client Program Screenshot](images/Screenshot5.jpg)
